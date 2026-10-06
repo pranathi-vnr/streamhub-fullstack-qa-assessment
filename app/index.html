@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loan &amp; EMI Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1 data-testid="app-title">Loan &amp; EMI Dashboard</h1>
+    <div role="tablist" aria-label="Main sections" class="tabs">
+      <button role="tab" id="tab-dashboard" aria-controls="panel-dashboard" aria-selected="true" data-testid="tab-dashboard">Dashboard</button>
+      <button role="tab" id="tab-calculator" aria-controls="panel-calculator" aria-selected="false" data-testid="tab-calculator">Loan Calculator</button>
+      <button role="tab" id="tab-report" aria-controls="panel-report" aria-selected="false" data-testid="tab-report">Loan Report</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= DASHBOARD ================= -->
+    <section role="tabpanel" id="panel-dashboard" aria-labelledby="tab-dashboard" data-testid="dashboard-panel">
+      <h2>Portfolio Summary</h2>
+      <div class="kpi-grid">
+        <article class="kpi-card" data-testid="kpi-total-loans">
+          <h3>Total Loans</h3>
+          <p class="kpi-value" data-testid="kpi-total-loans-value">–</p>
+        </article>
+        <article class="kpi-card" data-testid="kpi-total-amount">
+          <h3>Total Loan Amount</h3>
+          <p class="kpi-value" data-testid="kpi-total-amount-value">–</p>
+        </article>
+        <article class="kpi-card" data-testid="kpi-average-amount">
+          <h3>Average Loan Amount</h3>
+          <p class="kpi-value" data-testid="kpi-average-amount-value">–</p>
+        </article>
+        <article class="kpi-card" data-testid="kpi-total-interest">
+          <h3>Total Interest</h3>
+          <p class="kpi-value" data-testid="kpi-total-interest-value">–</p>
+        </article>
+        <article class="kpi-card" data-testid="kpi-customers">
+          <h3>Number of Customers</h3>
+          <p class="kpi-value" data-testid="kpi-customers-value">–</p>
+        </article>
+      </div>
+
+      <div class="card">
+        <h3>Loan Amount by Loan Type</h3>
+        <div class="chart-box">
+          <canvas id="dashboard-chart" data-testid="dashboard-chart" role="img" aria-label="Doughnut chart of loan amount by loan type"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CALCULATOR ================= -->
+    <section role="tabpanel" id="panel-calculator" aria-labelledby="tab-calculator" data-testid="calculator-panel" hidden>
+      <h2>EMI Calculator</h2>
+      <div class="two-col">
+        <form id="calculator-form" class="card" data-testid="calculator-form" novalidate>
+          <div class="field">
+            <label for="loan-amount">Loan Amount (₹)</label>
+            <input id="loan-amount" name="loanAmount" type="number" min="1" step="any" data-testid="loan-amount-input" />
+          </div>
+          <div class="field">
+            <label for="interest-rate">Interest Rate (% per year)</label>
+            <input id="interest-rate" name="interestRate" type="number" min="0" step="any" data-testid="interest-rate-input" />
+          </div>
+          <div class="field">
+            <label for="loan-tenure">Loan Tenure (years)</label>
+            <input id="loan-tenure" name="loanTenure" type="number" min="1" step="any" data-testid="loan-tenure-input" />
+          </div>
+          <p id="calculator-error" class="error" role="alert" data-testid="calculator-error" hidden></p>
+          <button type="submit" class="primary" data-testid="calculate-button">Calculate</button>
+        </form>
+
+        <div class="card" data-testid="calculator-results" aria-live="polite">
+          <h3>Results</h3>
+          <dl class="results">
+            <dt>Monthly EMI</dt>
+            <dd data-testid="emi-output">–</dd>
+            <dt>Total Interest</dt>
+            <dd data-testid="total-interest-output">–</dd>
+            <dt>Total Payment</dt>
+            <dd data-testid="total-payment-output">–</dd>
+          </dl>
+          <div class="chart-box small">
+            <canvas id="calculator-chart" data-testid="calculator-chart" role="img" aria-label="Doughnut chart of principal versus interest"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REPORT ================= -->
+    <section role="tabpanel" id="panel-report" aria-labelledby="tab-report" data-testid="report-panel" hidden>
+      <h2>Loan Report</h2>
+      <div class="card filters" data-testid="report-filters">
+        <div class="field">
+          <label for="filter-type">Loan Type</label>
+          <select id="filter-type" data-testid="filter-type">
+            <option value="All">All</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="filter-status">Status</label>
+          <select id="filter-status" data-testid="filter-status">
+            <option value="All">All</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="filter-customer">Customer Name</label>
+          <input id="filter-customer" type="search" placeholder="Search customer" data-testid="filter-customer" />
+        </div>
+      </div>
+
+      <p class="muted" data-testid="report-count" aria-live="polite">Showing 0 loans</p>
+
+      <div class="card">
+        <h3>Loan Amount per Loan (filtered)</h3>
+        <div class="chart-box">
+          <canvas id="report-chart" data-testid="report-chart" role="img" aria-label="Bar chart of loan amount per loan"></canvas>
+        </div>
+      </div>
+
+      <div class="card table-wrap">
+        <table data-testid="loan-table" aria-label="Loan report table">
+          <thead>
+            <tr>
+              <th scope="col">Loan ID</th>
+              <th scope="col">Customer</th>
+              <th scope="col">Type</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Rate (%)</th>
+              <th scope="col">Tenure (yrs)</th>
+              <th scope="col">Monthly EMI</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody data-testid="loan-table-body"></tbody>
+        </table>
+        <p id="empty-message" class="muted" data-testid="empty-message" hidden>No loans match the selected filters.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/vendor/chart.umd.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

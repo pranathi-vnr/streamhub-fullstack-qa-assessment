@@ -1,0 +1,32 @@
+{
+  "name": "streamhub-section-a",
+  "version": "1.0.0",
+  "description": "Streamhub assessment - Section A: Loan/EMI dashboard web app with Playwright + Cucumber UI automation, API tests and SQL scenarios",
+  "private": true,
+  "scripts": {
+    "postinstall": "node scripts/setup-env.js",
+    "app": "node server.js",
+    "typecheck": "tsc --noEmit",
+    "install:browsers": "playwright install chromium",
+    "test": "npm run test:ui && npm run test:api && npm run test:sql",
+    "test:ui": "node scripts/run-with-app.js npx cucumber-js",
+    "test:ui:running": "cucumber-js",
+    "test:api": "playwright test",
+    "test:sql": "node scripts/run-sql.js",
+    "test:self-healing-demo": "cross-env RUN_SELF_HEALING_DEMO=true node scripts/run-with-app.js npx playwright test --config=playwright.selfhealing.config.ts",
+    "report:api": "playwright show-report test-results/reports/api-html"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.0.0",
+    "@playwright/test": "1.56.1",
+    "@types/node": "^22.0.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "sql.js": "^1.14.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.7"
+  }
+}

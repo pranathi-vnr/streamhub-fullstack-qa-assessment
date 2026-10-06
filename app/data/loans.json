@@ -1,0 +1,22 @@
+[
+  { "id": "L-1001", "customer": "Aarav Sharma", "type": "Home", "amount": 4500000, "rate": 8.5, "tenureYears": 20, "status": "Active" },
+  { "id": "L-1002", "customer": "Priya Reddy", "type": "Personal", "amount": 500000, "rate": 12, "tenureYears": 4, "status": "Active" },
+  { "id": "L-1003", "customer": "Rohan Mehta", "type": "Car", "amount": 800000, "rate": 9.5, "tenureYears": 5, "status": "Active" },
+  { "id": "L-1004", "customer": "Ananya Iyer", "type": "Education", "amount": 1200000, "rate": 9, "tenureYears": 7, "status": "Active" },
+  { "id": "L-1005", "customer": "Vikram Singh", "type": "Home", "amount": 6000000, "rate": 8.25, "tenureYears": 25, "status": "Active" },
+  { "id": "L-1006", "customer": "Sneha Patil", "type": "Personal", "amount": 300000, "rate": 13, "tenureYears": 3, "status": "Closed" },
+  { "id": "L-1007", "customer": "Karthik Nair", "type": "Car", "amount": 950000, "rate": 9.75, "tenureYears": 5, "status": "Overdue" },
+  { "id": "L-1008", "customer": "Meera Das", "type": "Home", "amount": 3500000, "rate": 8.75, "tenureYears": 15, "status": "Active" },
+  { "id": "L-1009", "customer": "Aarav Sharma", "type": "Car", "amount": 700000, "rate": 9.25, "tenureYears": 4, "status": "Closed" },
+  { "id": "L-1010", "customer": "Neha Gupta", "type": "Education", "amount": 1800000, "rate": 8.9, "tenureYears": 10, "status": "Active" },
+  { "id": "L-1011", "customer": "Arjun Rao", "type": "Personal", "amount": 750000, "rate": 12.5, "tenureYears": 5, "status": "Overdue" },
+  { "id": "L-1012", "customer": "Divya Menon", "type": "Home", "amount": 5200000, "rate": 8.4, "tenureYears": 20, "status": "Active" },
+  { "id": "L-1013", "customer": "Rahul Verma", "type": "Car", "amount": 1100000, "rate": 9.6, "tenureYears": 6, "status": "Active" },
+  { "id": "L-1014", "customer": "Priya Reddy", "type": "Home", "amount": 2800000, "rate": 8.6, "tenureYears": 15, "status": "Active" },
+  { "id": "L-1015", "customer": "Sanjay Kulkarni", "type": "Personal", "amount": 400000, "rate": 14, "tenureYears": 2, "status": "Closed" },
+  { "id": "L-1016", "customer": "Lakshmi Pillai", "type": "Education", "amount": 950000, "rate": 9.2, "tenureYears": 8, "status": "Active" },
+  { "id": "L-1017", "customer": "Imran Khan", "type": "Home", "amount": 4100000, "rate": 8.55, "tenureYears": 18, "status": "Overdue" },
+  { "id": "L-1018", "customer": "Pooja Joshi", "type": "Car", "amount": 600000, "rate": 9, "tenureYears": 3, "status": "Closed" },
+  { "id": "L-1019", "customer": "Rahul Verma", "type": "Personal", "amount": 900000, "rate": 11.75, "tenureYears": 5, "status": "Active" },
+  { "id": "L-1020", "customer": "Tanvi Bhat", "type": "Home", "amount": 7500000, "rate": 8.3, "tenureYears": 25, "status": "Active" }
+]

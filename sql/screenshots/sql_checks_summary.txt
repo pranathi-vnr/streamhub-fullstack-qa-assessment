@@ -1,0 +1,2 @@
+PASS  S1 finds exactly the two valid round trips (1->2, 3->4)
+PASS  S2 finds the four expected streaks (and not Rohit Sharma / KL Rahul)
